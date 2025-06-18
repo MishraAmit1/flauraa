@@ -2,5 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 
+strong {
+  color: #073763
+}
+
 @import "tailwindcss";
 @import "tw-animate-css";

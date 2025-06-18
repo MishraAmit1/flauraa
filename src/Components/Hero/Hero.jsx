@@ -86,10 +86,10 @@ function Hero() {
       </Helmet>
       <div
         id="home"
-        className="lg:flex gap-4 px-5 md:px-10 lg:px-20 items-center py-5 md:py-10 lg:py-15"
+        className="lg:flex gap-4 px-5 md:px-10 lg:px-20 items-center py-5 md:py-10 lg:py-15 mt-4"
       >
-        <div className="left w-full lg:w-1/2 space-y-5">
-          <h1 className="text-[7vw] leading-none lg:text-6xl font-bold">
+        <div className="left w-full lg:w-1/2 md:space-y-7 space-y-4">
+          <h1 className="text-[9.5vw] leading-11 md:leading-[72px] lg:text-6xl font-bold">
             Scale Faster with <br />
             <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
               Full Stack
@@ -113,7 +113,7 @@ function Hero() {
             <button
               onClick={openCalendlyPopup}
               disabled={!isCalendlyLoaded}
-              className="px-6 py-3 bg-cyan-700 text-white font-semibold text-lg rounded-full cursor-pointer shadow-lg hover:bg-cyan-800 hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
+              className="px-6 py-3 bg-cyan-700 text-white font-semibold text-[14px] md:text-lg rounded-full cursor-pointer shadow-lg hover:bg-cyan-800 hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2"
               aria-label="Book a Free Consultation Call"
             >
               Book a Free Call

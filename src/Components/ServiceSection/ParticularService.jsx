@@ -100,12 +100,12 @@ function ParticularService() {
                 What We Deliver
               </h3>
             </div>
-            <div className="grid gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
               {service.detailedContent.offerings.map((offering, index) => (
                 <div key={index} className="group relative">
                   <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
-                  <div className="pl-8 py-4 hover:bg-gray-50 rounded-2xl transition-all duration-300 group-hover:translate-x-2">
-                    <div className="flex items-start gap-4">
+                  <div className="pl-8 py-6 hover:bg-gray-50 rounded-2xl transition-all duration-300 group-hover:translate-x-2 h-full">
+                    <div className="flex items-start gap-4 h-full">
                       <div className="w-8 h-8 bg-gradient-to-br from-blue-100 to-indigo-200 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                         <span className="text-blue-600 text-sm font-bold">
                           {index + 1}
@@ -150,6 +150,43 @@ function ParticularService() {
                     </p>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced Call to Action */}
+          <div className="relative bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 rounded-3xl p-8 sm:p-10 text-center text-white shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute top-0 left-1/4 w-24 h-24 bg-white/20 rounded-full -translate-y-12"></div>
+            <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-white/10 rounded-full translate-y-16"></div>
+            <div className="relative z-10">
+              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <span className="text-3xl">🚀</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4">
+                Ready to Transform Your Business?
+              </h3>
+              <p className="text-white/90 mb-8 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+                Join 100+ brands who've accelerated their growth with our{" "}
+                {service.title.toLowerCase()} expertise. Let's build something
+                extraordinary together.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  to="/contact-us"
+                  className="group relative inline-flex items-center gap-2 bg-white text-gray-900 px-8 py-4 rounded-2xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                >
+                  <span>Start Your Journey</span>
+                  <span className="group-hover:translate-x-1 transition-transform font-extrabold">
+                    →
+                  </span>
+                </Link>
+                <Link
+                  to="/showcase"
+                  className="inline-flex items-center gap-2 border-2 border-white/30 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-white/10 transition-all duration-300"
+                >
+                  View More Services
+                </Link>
               </div>
             </div>
           </div>

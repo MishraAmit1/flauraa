@@ -31,17 +31,26 @@ export default function About() {
               <span className="text-8xl font-bold leading-none -mr-2.5 font-serif text-cyan-600">
                 F
               </span>
-              lauraa is a growth-driven marketing startup dedicated to helping
-              businesses scale with precision. We combine data-driven
-              strategies, creative brilliance, and transparent collaboration to
-              deliver measurable results, empowering startups and small
-              businesses to thrive in competitive markets.
+              lauraa was born right when the world realized digital was no
+              longer optional. As businesses rushed to adapt, we noticed the
+              problem: most marketing agencies relied on{" "}
+              <strong>outdated tactics</strong>, falling short in today’s <br />
+              <strong> fast-paced digital landscape.</strong>
             </p>
             <p className="text-lg text-gray-900 leading-relaxed mb-6">
-              Today, we’ve helped over 50 brands across industries achieve
-              exponential growth, from startups to established enterprises. Our
-              approach is rooted in transparency, collaboration, and relentless
-              focus on ROI.
+              We built Flauraa to bridge that gap—with a focus on{" "}
+              <strong>performance marketing</strong>,{" "}
+              <strong>creative storytelling</strong>, and{" "}
+              <strong>strategic execution</strong>. Our belief?{" "}
+              <strong>Growth should be predictable</strong>, measurable, and
+              driven by clarity, not guesswork.
+            </p>
+            <p className="text-lg text-gray-900 leading-relaxed mb-6">
+              Flauraa is more than just a{" "}
+              <strong>digital marketing agency</strong> we’re your
+              <strong> full-stack growth partner</strong>. Our mission is
+              simple: make <strong>scalable digital growth</strong> effortless,
+              effective, and human-first.
             </p>
             <Link
               to="/about-us"
@@ -51,12 +60,13 @@ export default function About() {
               Read More
             </Link>
           </div>
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end animate__animated animate__fadeInRight animate__delay-2s">
             <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-cyan-700 opacity-20 rounded-3xl group-hover:opacity-30 transition-opacity duration-500"></div>
               <img
                 src="/about-main.jpg"
                 alt="Team collaboration at Flauraa marketing agency"
-                className="relative w-full h-80 md:h-96 object-cover rounded-3xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
+                className="relative w-full h-80 sm:h-96 lg:h-[28rem] object-cover rounded-3xl shadow-2xl group-hover:scale-105 group-hover:shadow-3xl transition-all duration-500"
                 loading="lazy"
               />
             </div>

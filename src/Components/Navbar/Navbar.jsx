@@ -1,17 +1,46 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { X } from "lucide-react";
+import { X, ChevronDown } from "lucide-react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useCalendly } from "../../context/CalendlyContext";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const { isCalendlyLoaded } = useCalendly();
   const location = useLocation();
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleServicesDropdown = () =>
+    setIsServicesDropdownOpen(!isServicesDropdownOpen);
+  const toggleMobileServices = () =>
+    setIsMobileServicesOpen(!isMobileServicesOpen);
+
+  const serviceLinks = [
+    { name: "Creative", path: "/services/creative" },
+    { name: "Strategy", path: "/services/performance-strategy" },
+    { name: "Consulting", path: "/services/growth-consulting" },
+    { name: "Retention", path: "/services/retention-ltv" },
+    { name: "Acquisition", path: "/services/customer-acquisition" },
+  ];
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsServicesDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleOutsideClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -94,7 +123,7 @@ function Navbar() {
 
   return (
     <nav
-      className="flex justify-between px-4 sm:px-10 md:px-20 py-3 md:py-6 border-b-2 border-gray-100 bg-white items-center sticky top-0 z-50"
+      className="flex justify-between px-4 sm:px-10 md:px-20 py-3 md:py-6 bg-white items-center sticky top-0 z-50"
       aria-label="Main navigation"
     >
       <div className="logo flex gap-2 items-center">
@@ -123,19 +152,46 @@ function Navbar() {
         >
           Home
         </NavLink>
-        <NavLink
-          to="/showcase"
-          className={({ isActive }) =>
-            `text-base md:text-lg transition-colors ${
-              isActive
-                ? "text-cyan-700 font-semibold"
-                : "text-gray-700 hover:text-cyan-700"
-            }`
-          }
-          aria-label="Services page"
-        >
-          Services
-        </NavLink>
+
+        {/* Services Dropdown */}
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={toggleServicesDropdown}
+            className="flex items-center gap-1 text-base md:text-lg text-gray-700 hover:text-cyan-700 transition-colors"
+            aria-label="Services menu"
+          >
+            Services
+            <ChevronDown
+              className={`w-4 h-4 transition-transform duration-200 ${
+                isServicesDropdownOpen ? "rotate-180" : ""
+              }`}
+            />
+          </button>
+
+          {isServicesDropdownOpen && (
+            <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+              <div className="py-2">
+                {serviceLinks.map((service, index) => (
+                  <NavLink
+                    key={index}
+                    to={service.path}
+                    className={({ isActive }) =>
+                      `block px-4 py-2 text-sm transition-colors ${
+                        isActive
+                          ? "text-cyan-700 bg-cyan-50 font-semibold"
+                          : "text-gray-700 hover:text-cyan-700 hover:bg-gray-50"
+                      }`
+                    }
+                    onClick={() => setIsServicesDropdownOpen(false)}
+                  >
+                    {service.name}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
         <NavLink
           to="/blogs"
           className={({ isActive }) =>
@@ -208,7 +264,7 @@ function Navbar() {
           onClick={handleOutsideClick}
           aria-label="Mobile menu"
         >
-          <div className="bg-white w-4/5 sm:w-3/5 max-w-sm h-full p-6 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out translate-x-0">
+          <div className="bg-white w-4/5 sm:w-3/5 max-w-sm h-full p-6 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out translate-x-0 overflow-y-auto">
             <div className="flex justify-between items-center">
               <div className="logo flex gap-2 items-center">
                 <img
@@ -242,13 +298,44 @@ function Navbar() {
               >
                 Home
               </NavLink>
-              <button
-                onClick={() => handleNavClick("showcase")}
-                className="text-lg text-gray-700 hover:text-cyan-700 transition-colors text-left"
-                aria-label="Scroll to Services section"
-              >
-                Services
-              </button>
+
+              {/* Mobile Services Dropdown */}
+              <div>
+                <button
+                  onClick={toggleMobileServices}
+                  className="flex items-center justify-between w-full text-lg text-gray-700 hover:text-cyan-700 transition-colors text-left"
+                  aria-label="Services menu"
+                >
+                  Services
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-200 ${
+                      isMobileServicesOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {isMobileServicesOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {serviceLinks.map((service, index) => (
+                      <NavLink
+                        key={index}
+                        to={service.path}
+                        className={({ isActive }) =>
+                          `block text-base transition-colors ${
+                            isActive
+                              ? "text-cyan-700 font-semibold"
+                              : "text-gray-600 hover:text-cyan-700"
+                          }`
+                        }
+                        onClick={toggleMenu}
+                      >
+                        {service.name}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <NavLink
                 to="/blogs"
                 className={({ isActive }) =>
