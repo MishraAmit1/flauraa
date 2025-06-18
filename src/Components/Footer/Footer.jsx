@@ -54,7 +54,7 @@ function Footer() {
 
   return (
     <footer
-      className="bg-black text-white py-16 px-6 md:px-8"
+      className="bg-[#e0ebf0] text-black py-16 px-6 md:px-8"
       role="contentinfo"
       aria-label="Footer"
     >
@@ -71,7 +71,7 @@ function Footer() {
               />
               <h1 className="font-bold text-3xl text-[#024f98]">Flauraa</h1>
             </div>
-            <p className="text-gray-400 max-w-md">
+            <p className="text-[#161616] max-w-md">
               Empowering businesses with marketing solutions that deliver
               measurable results.
             </p>
@@ -82,7 +82,7 @@ function Footer() {
                   <a
                     key={social.name}
                     href={social.url}
-                    className="bg-gray-800 hover:bg-gray-700 hover:scale-110 p-3 rounded-full transition-all duration-300"
+                    className="hover:bg-gray-700 hover:scale-110 p-3 rounded-full transition-all duration-300"
                     aria-label={social.ariaLabel}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -102,7 +102,7 @@ function Footer() {
                 <Link
                   to="/"
                   onClick={() => scrollToSection("about")}
-                  className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="text-[#161616] hover:text-white hover:translate-x-1 transition-all duration-200"
                 >
                   About
                 </Link>
@@ -111,7 +111,7 @@ function Footer() {
                 <Link
                   to="/"
                   onClick={() => scrollToSection("blog")}
-                  className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="text-[#161616] hover:text-white hover:translate-x-1 transition-all duration-200"
                 >
                   Blog
                 </Link>
@@ -120,7 +120,7 @@ function Footer() {
                 <Link
                   to="/"
                   onClick={() => scrollToSection("services")}
-                  className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="text-[#161616] hover:text-white hover:translate-x-1 transition-all duration-200"
                 >
                   Services
                 </Link>
@@ -128,7 +128,7 @@ function Footer() {
               <li>
                 <Link
                   to="/contact-us"
-                  className="text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="text-[#161616] hover:text-white hover:translate-x-1 transition-all duration-200"
                 >
                   Contact
                 </Link>
@@ -143,7 +143,7 @@ function Footer() {
               <li>
                 <button
                   onClick={openTermsModal}
-                  className="cursor-pointer text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="cursor-pointer text-[#161616] hover:text-white hover:translate-x-1 transition-all duration-200"
                   aria-controls="terms-modal"
                   aria-expanded={isTermsOpen}
                 >
@@ -153,7 +153,7 @@ function Footer() {
               <li>
                 <button
                   onClick={openPrivacyModal}
-                  className="cursor-pointer text-gray-400 hover:text-white hover:translate-x-1 transition-all duration-200"
+                  className="cursor-pointer text-[#161616] hover:text-white hover:translate-x-1 transition-all duration-200"
                   aria-controls="privacy-modal"
                   aria-expanded={isPrivacyOpen}
                 >
@@ -169,7 +169,7 @@ function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center -mb-8">
-          <p className="text-gray-200 text-sm text-center">
+          <p className="text-[#161616] text-sm text-center">
             © 2025 Flauraa. All rights reserved.
           </p>
         </div>
