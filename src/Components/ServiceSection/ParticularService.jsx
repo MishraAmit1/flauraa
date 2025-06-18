@@ -127,22 +127,22 @@ function ParticularService() {
           </div>
 
           {/* Why Flauraa with premium styling */}
-          <div className="relative bg-gradient-to-br from-indigo-600 via-blue-600 to-purple-700 rounded-3xl p-8 sm:p-10 shadow-2xl overflow-hidden">
+          <div className="relative bg-gradient-to-br from-[#8181c7] via-[#9f84cf] to-[#b78aca]  rounded-3xl p-8 sm:p-10 shadow-2xl overflow-hidden">
             <div className="absolute top-0 right-0 w-40 h-40 bg-white opacity-10 rounded-full -translate-y-20 translate-x-20"></div>
-            <div className="absolute bottom-0 left-0 w-32 h-32 bg-yellow-300 opacity-20 rounded-full translate-y-16 -translate-x-16"></div>
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#b2b2e6] opacity-20 rounded-full translate-y-16 -translate-x-16"></div>
             <div className="relative z-10">
               <div className="flex items-center gap-4 mb-8">
                 <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg">
                   <span className="text-white text-xl">⭐</span>
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                  The Flauraa Advantage
+                  Flauraa Advantage
                 </h3>
               </div>
               <div className="grid gap-5 sm:gap-6">
                 {service.detailedContent.whyUs.map((reason, index) => (
                   <div key={index} className="flex items-start gap-4 group">
-                    <div className="w-8 h-8 bg-green-400 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="w-8 h-8 bg-[#60608e] rounded-full flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform">
                       <FiCheck className="w-4 h-4 text-white font-bold" />
                     </div>
                     <p className="text-white/90 text-base sm:text-lg leading-relaxed font-medium group-hover:text-white transition-colors">
@@ -155,7 +155,7 @@ function ParticularService() {
           </div>
 
           {/* Enhanced Call to Action */}
-          <div className="relative bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 rounded-3xl p-8 sm:p-10 text-center text-white shadow-2xl overflow-hidden">
+          <div className="relative bg-gradient-to-r from-[#42c6b2] via-[#62b1c8] to-[#51a6c5] rounded-3xl p-8 sm:p-10 text-center text-white shadow-2xl overflow-hidden">
             <div className="absolute inset-0 bg-black/10"></div>
             <div className="absolute top-0 left-1/4 w-24 h-24 bg-white/20 rounded-full -translate-y-12"></div>
             <div className="absolute bottom-0 right-1/4 w-32 h-32 bg-white/10 rounded-full translate-y-16"></div>
