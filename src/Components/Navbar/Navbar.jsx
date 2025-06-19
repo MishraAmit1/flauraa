@@ -126,16 +126,18 @@ function Navbar() {
       className="flex justify-between px-4 sm:px-10 md:px-20 py-3 md:py-6 bg-white items-center sticky top-0 z-50"
       aria-label="Main navigation"
     >
-      <div className="logo flex gap-2 items-center">
-        <img
-          src="/logo-removebg-preview.png"
-          alt="Flauraa Logo"
-          className="w-8 sm:w-10"
-        />
-        <h1 className="font-bold text-2xl sm:text-3xl text-[#024f98]">
-          Flauraa
-        </h1>
-      </div>
+      <NavLink to="/">
+        <div className="logo flex gap-2 items-center">
+          <img
+            src="/logo-removebg-preview.png"
+            alt="Flauraa Logo"
+            className="w-8 sm:w-10"
+          />
+          <h1 className="font-bold text-2xl sm:text-3xl text-[#024f98]">
+            Flauraa
+          </h1>
+        </div>
+      </NavLink>
 
       <div className="links hidden lg:flex gap-6 items-center">
         <NavLink
@@ -169,7 +171,7 @@ function Navbar() {
           </button>
 
           {isServicesDropdownOpen && (
-            <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+            <div className="absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-in slide-in-from-top-2 duration-200">
               <div className="py-2">
                 {serviceLinks.map((service, index) => (
                   <NavLink
@@ -258,134 +260,152 @@ function Navbar() {
         </button>
       </div>
 
-      {isMenuOpen && (
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-[#e0ebf0] bg-opacity-30 flex justify-end z-50 lg:hidden transition-opacity duration-300 ${
+          isMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        onClick={handleOutsideClick}
+        aria-label="Mobile menu"
+      >
+        {/* Mobile Menu Sidebar */}
         <div
-          className="fixed inset-0 bg-[#007595] bg-opacity-30 flex justify-end z-50 lg:hidden will-change-transform"
-          onClick={handleOutsideClick}
-          aria-label="Mobile menu"
+          className={`bg-white w-4/5 sm:w-3/5 max-w-sm h-full p-6 flex flex-col gap-6 overflow-y-auto transform transition-transform duration-300 ease-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
         >
-          <div className="bg-white w-4/5 sm:w-3/5 max-w-sm h-full p-6 flex flex-col gap-6 transform transition-transform duration-300 ease-in-out translate-x-0 overflow-y-auto">
-            <div className="flex justify-between items-center">
-              <div className="logo flex gap-2 items-center">
-                <img
-                  src="/logo-removebg-preview.png"
-                  alt="Flauraa Logo"
-                  className="w-8"
+          <div className="flex justify-between items-center">
+            <div className="logo flex gap-2 items-center">
+              <img
+                src="/logo-removebg-preview.png"
+                alt="Flauraa Logo"
+                className="w-8"
+              />
+              <h1 className="font-bold text-2xl text-[#024f98]">Flauraa</h1>
+            </div>
+            <button
+              onClick={toggleMenu}
+              className="cursor-pointer"
+              aria-label="Close Menu"
+            >
+              <X className="text-2xl text-gray-700" />
+            </button>
+          </div>
+
+          {/* Animated Menu Items */}
+          <div className="flex flex-col gap-4 mt-6">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `text-lg transform transition-transform duration-200 hover:translate-x-1 ${
+                  isActive
+                    ? "text-cyan-700 font-semibold"
+                    : "text-gray-700 hover:text-cyan-700"
+                }`
+              }
+              onClick={toggleMenu}
+              end
+              aria-label="Home page"
+            >
+              Home
+            </NavLink>
+
+            {/* Mobile Services Dropdown */}
+            <div className="transform transition-transform duration-200 hover:translate-x-1">
+              <button
+                onClick={toggleMobileServices}
+                className="flex items-center justify-between w-full text-lg text-gray-700 hover:text-cyan-700 transition-colors text-left"
+                aria-label="Services menu"
+              >
+                Services
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform duration-200 ${
+                    isMobileServicesOpen ? "rotate-180" : ""
+                  }`}
                 />
-                <h1 className="font-bold text-2xl text-[#024f98]">Flauraa</h1>
+              </button>
+
+              {/* Animated Services Submenu */}
+              <div
+                className={`ml-4 mt-2 space-y-2 overflow-hidden transition-all duration-300 ease-in-out ${
+                  isMobileServicesOpen
+                    ? "max-h-96 opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                {serviceLinks.map((service, index) => (
+                  <NavLink
+                    key={index}
+                    to={service.path}
+                    className={({ isActive }) =>
+                      `block text-base transition-all duration-200 transform hover:translate-x-1 ${
+                        isActive
+                          ? "text-cyan-700 font-semibold"
+                          : "text-gray-600 hover:text-cyan-700"
+                      }`
+                    }
+                    onClick={toggleMenu}
+                    style={{
+                      animationDelay: `${index * 50}ms`,
+                    }}
+                  >
+                    {service.name}
+                  </NavLink>
+                ))}
               </div>
-              <button
-                onClick={toggleMenu}
-                className="cursor-pointer"
-                aria-label="Close Menu"
-              >
-                <X className="text-2xl text-gray-700" />
-              </button>
             </div>
-            <div className="flex flex-col gap-4 mt-6">
-              <NavLink
-                to="/"
-                className={({ isActive }) =>
-                  `text-lg transition-colors ${
-                    isActive
-                      ? "text-cyan-700 font-semibold"
-                      : "text-gray-700 hover:text-cyan-700"
-                  }`
-                }
-                onClick={toggleMenu}
-                end
-                aria-label="Home page"
-              >
-                Home
-              </NavLink>
 
-              {/* Mobile Services Dropdown */}
-              <div>
-                <button
-                  onClick={toggleMobileServices}
-                  className="flex items-center justify-between w-full text-lg text-gray-700 hover:text-cyan-700 transition-colors text-left"
-                  aria-label="Services menu"
-                >
-                  Services
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      isMobileServicesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                {isMobileServicesOpen && (
-                  <div className="ml-4 mt-2 space-y-2">
-                    {serviceLinks.map((service, index) => (
-                      <NavLink
-                        key={index}
-                        to={service.path}
-                        className={({ isActive }) =>
-                          `block text-base transition-colors ${
-                            isActive
-                              ? "text-cyan-700 font-semibold"
-                              : "text-gray-600 hover:text-cyan-700"
-                          }`
-                        }
-                        onClick={toggleMenu}
-                      >
-                        {service.name}
-                      </NavLink>
-                    ))}
-                  </div>
-                )}
-              </div>
-
-              <NavLink
-                to="/blogs"
-                className={({ isActive }) =>
-                  `text-lg transition-colors ${
-                    isActive
-                      ? "text-cyan-700 font-semibold"
-                      : "text-gray-700 hover:text-cyan-700"
-                  }`
-                }
-                onClick={toggleMenu}
-                aria-label="Blog page"
-              >
-                Blog
-              </NavLink>
-              <NavLink
-                to="/about-us"
-                className={({ isActive }) =>
-                  `text-lg transition-colors ${
-                    isActive
-                      ? "text-cyan-700 font-semibold"
-                      : "text-gray-700 hover:text-cyan-700"
-                  }`
-                }
-                onClick={toggleMenu}
-                aria-label="About us page"
-              >
-                About
-              </NavLink>
-              <button
-                onClick={() => handleNavClick("contact")}
-                className="text-lg text-gray-700 hover:text-cyan-700 transition-colors text-left"
-                aria-label="Scroll to Contact section"
-              >
-                Contact
-              </button>
-              <button
-                className="bg-cyan-700 px-4 py-2 text-white rounded-3xl duration-200 transition-all hover:bg-cyan-800 cursor-pointer text-base mt-4"
-                onClick={() => {
-                  toggleMenu();
-                  openCalendlyPopup();
-                }}
-                disabled={!isCalendlyLoaded}
-                aria-label="Book a consultation call"
-              >
-                Book a Call Now
-              </button>
-            </div>
+            <NavLink
+              to="/blogs"
+              className={({ isActive }) =>
+                `text-lg transition-all duration-200 transform hover:translate-x-1 ${
+                  isActive
+                    ? "text-cyan-700 font-semibold"
+                    : "text-gray-700 hover:text-cyan-700"
+                }`
+              }
+              onClick={toggleMenu}
+              aria-label="Blog page"
+            >
+              Blog
+            </NavLink>
+            <NavLink
+              to="/about-us"
+              className={({ isActive }) =>
+                `text-lg transition-all duration-200 transform hover:translate-x-1 ${
+                  isActive
+                    ? "text-cyan-700 font-semibold"
+                    : "text-gray-700 hover:text-cyan-700"
+                }`
+              }
+              onClick={toggleMenu}
+              aria-label="About us page"
+            >
+              About
+            </NavLink>
+            <button
+              onClick={() => handleNavClick("contact")}
+              className="text-lg text-gray-700 hover:text-cyan-700 transition-all duration-200 text-left transform hover:translate-x-1"
+              aria-label="Scroll to Contact section"
+            >
+              Contact
+            </button>
+            <button
+              className="bg-cyan-700 px-4 py-2 text-white rounded-3xl duration-200 transition-all hover:bg-cyan-800 hover:scale-105 cursor-pointer text-base mt-4 transform"
+              onClick={() => {
+                toggleMenu();
+                openCalendlyPopup();
+              }}
+              disabled={!isCalendlyLoaded}
+              aria-label="Book a consultation call"
+            >
+              Book a Call Now
+            </button>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

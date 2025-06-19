@@ -84,7 +84,18 @@ function DetailsBlogs() {
         <Typography
           variant="h2"
           component="h1"
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
+          sx={{
+            fontSize: {
+              xs: "2.2rem",
+              sm: "1.875rem",
+              md: "3.5rem",
+            },
+            fontWeight: {
+              xs: 400,
+              sm: 400,
+              md: 500,
+            },
+          }}
         >
           Growth Strategies That Actually Work
         </Typography>

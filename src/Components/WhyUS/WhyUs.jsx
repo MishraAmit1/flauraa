@@ -79,9 +79,19 @@ function WhyUs() {
           <div className="space-y-4">
             <Typography
               variant="h2"
-              component="h2"
-              id="why-us-heading"
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
+              component="h1"
+              sx={{
+                fontSize: {
+                  xs: "2.2rem",
+                  sm: "1.875rem",
+                  md: "3.5rem",
+                },
+                fontWeight: {
+                  xs: 400,
+                  sm: 400,
+                  md: 500,
+                },
+              }}
             >
               Why Choose Flauraa?
             </Typography>

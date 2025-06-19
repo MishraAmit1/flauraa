@@ -14,8 +14,18 @@ export default function About() {
           <Typography
             variant="h2"
             component="h1"
-            id="about-heading"
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
+            sx={{
+              fontSize: {
+                xs: "2.2rem",
+                sm: "1.875rem",
+                md: "3.5rem",
+              },
+              fontWeight: {
+                xs: 400,
+                sm: 400,
+                md: 500,
+              },
+            }}
           >
             About Flauraa
           </Typography>
@@ -28,7 +38,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16 md:mb-20 items-center">
           <div>
             <p className="text-lg text-gray-900 leading-relaxed mb-6">
-              <span className="text-8xl font-bold leading-none -mr-2.5 font-serif text-cyan-600">
+              <span className="md:text-8xl text-[77px] font-bold leading-none -mr-2.5 font-serif text-cyan-600">
                 F
               </span>
               lauraa was born right when the world realized digital was no

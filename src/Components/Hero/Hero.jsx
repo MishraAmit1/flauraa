@@ -73,7 +73,8 @@ function Hero() {
     <>
       <Helmet>
         <title>
-          Full Stack Marketing Agency | Funnels, Ads & Growth at Scale
+          Flauraa | Full-Stack Digital Marketing Agency | Funnels, Ads & Growth
+          at Scale
         </title>
         <meta
           name="description"

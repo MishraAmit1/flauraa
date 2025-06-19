@@ -47,7 +47,18 @@ function ParticularService() {
           <Typography
             variant="h2"
             component="h1"
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
+            sx={{
+              fontSize: {
+                xs: "2.2rem",
+                sm: "1.875rem",
+                md: "3.5rem",
+              },
+              fontWeight: {
+                xs: 400,
+                sm: 400,
+                md: 500,
+              },
+            }}
           >
             {service.title}
           </Typography>

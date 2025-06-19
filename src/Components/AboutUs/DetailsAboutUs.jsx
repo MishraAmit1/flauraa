@@ -279,19 +279,19 @@ const DetailsAboutUs = () => {
             Join the 20+ brands that have transformed their growth trajectory
             with Flauraa. Let's create something extraordinary together.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               type="button"
-              onClick={() => navigate("/contact-us")} // Use navigate
-              className="px-8 py-4 bg-cyan-600 text-white font-semibold text-lg rounded-full shadow-xl hover:bg-cyan-700 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/50"
+              onClick={() => navigate("/contact-us")}
+              className="max-w-xs sm:max-w-none md:px-8 md:py-4 px-9 py-5 bg-cyan-600 text-white font-semibold text-lg rounded-full shadow-xl hover:bg-cyan-700 hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-cyan-500/50"
               aria-label="Contact us to start your journey"
             >
               Start Your Journey
             </button>
             <button
               type="button"
-              onClick={() => navigate("/contact-us")} // Temporary until portfolio route is added
-              className="px-8 py-4 bg-transparent border-2 border-white text-white font-semibold text-lg rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/50"
+              onClick={() => navigate("/contact-us")}
+              className="max-w-xs sm:max-w-none md:px-8 md:py-4 px-12 py-4 bg-transparent border-2 border-white text-white font-semibold text-lg rounded-full hover:bg-white hover:text-gray-900 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-white/50"
               aria-label="Contact us for portfolio details"
             >
               View Our Work

@@ -40,14 +40,32 @@ export default function Showcase() {
           <Typography
             variant="h2"
             component="h1"
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight"
+            sx={{
+              fontSize: {
+                xs: "2.2rem",
+                sm: "1.875rem",
+                md: "3.5rem",
+              },
+              fontWeight: {
+                xs: 400,
+                sm: 400,
+                md: 500,
+              },
+            }}
           >
             We Build Brands That Scale Predictably
           </Typography>
           <div className="w-24 sm:w-32 h-1 bg-amber-500 mb-8 sm:mb-10 rounded" />
           <Typography
             variant="h5"
-            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl"
+            sx={{
+              fontSize: {
+                xs: "1.2rem",
+                sm: "1.875rem",
+                md: "1.7rem",
+              },
+            }}
+            className="text-gray-600"
           >
             Growth Engines We Specialize In
           </Typography>
@@ -101,6 +119,13 @@ export default function Showcase() {
               <Typography
                 variant="h3"
                 component="h2"
+                sx={{
+                  fontSize: {
+                    xs: "2.1rem",
+                    sm: "1.875rem",
+                    md: "3.5rem",
+                  },
+                }}
                 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6"
               >
                 {currentService.title}

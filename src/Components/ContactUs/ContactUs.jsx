@@ -176,12 +176,22 @@ export default function ContactUs() {
         <Typography
           variant="h2"
           component="h1"
-          id="contact-heading"
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight"
+          sx={{
+            fontSize: {
+              xs: "2.2rem",
+              sm: "1.875rem",
+              md: "3.5rem",
+            },
+            fontWeight: {
+              xs: 400,
+              sm: 400,
+              md: 500,
+            },
+          }}
         >
           Get In Touch
         </Typography>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="md:text-xl text-gray-600 max-w-2xl mx-auto">
           Ready to accelerate your business growth? Let's discuss how we can
           help you achieve your goals.
         </p>
